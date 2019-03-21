@@ -9,7 +9,6 @@ locals {
 }
 
 resource "aws_subnet" "public" {
-  # Create a subnet for each availability zone
   count = "${length(local.availability_zones)}"
 
   availability_zone       = "${element(local.availability_zones, count.index)}"
@@ -19,7 +18,6 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_subnet" "private" {
-  # Create a subnet for each availability zone
   count = "${length(local.availability_zones)}"
 
   availability_zone       = "${element(local.availability_zones, count.index)}"
