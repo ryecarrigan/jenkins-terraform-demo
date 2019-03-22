@@ -1,11 +1,12 @@
-resource "aws_vpc" "vpc" {
-  cidr_block           = "${var.cidr_block}"
-  enable_dns_hostnames = true
+locals {
+  availability_zones = "${data.aws_availability_zones.current.names}"
 }
 
 data "aws_availability_zones" "current" {}
-locals {
-  availability_zones = "${data.aws_availability_zones.current.names}"
+
+resource "aws_vpc" "vpc" {
+  cidr_block           = "${var.cidr_block}"
+  enable_dns_hostnames = true
 }
 
 resource "aws_subnet" "public" {
