@@ -20,6 +20,7 @@ variable "service_port" {
   default = 8080
 }
 
+variable "ssh_cidr" {}
 variable "stack_name" {
   default = "jenkins"
 }

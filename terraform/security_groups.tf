@@ -3,7 +3,7 @@ resource "aws_security_group" "bastion" {
   vpc_id = "${aws_vpc.vpc.id}"
 
   ingress {
-    cidr_blocks = ["24.211.153.139/32"]
+    cidr_blocks = ["${var.ssh_cidr}"]
     from_port   = 22
     protocol    = "tcp"
     to_port     = 22
